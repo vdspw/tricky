@@ -18,7 +18,7 @@ always@(posedge clk or negedge resetn) begin
         out <= din & ~prev_din;
     end
 end
-
+// changed last block from comb to seq
 
 assign dout = out;
 
