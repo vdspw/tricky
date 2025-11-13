@@ -26,7 +26,7 @@ always@(posedge clk)begin
     end else if (din_en) begin
         temp <=din; // Load input data into temporary register
     end else begin
-        temp <= {1'b0,temp[15:1]}; // Shift right by 1 bit
+          temp <= {1'b0,temp[15:1]}; // Shift right by 1 bit  temp <= temp >> 1;
     end
 end
 assign dout = temp[0]; // Output the least significant bit
