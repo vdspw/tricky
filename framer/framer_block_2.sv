@@ -66,7 +66,7 @@ module FramerBlock (
 	assign emit_frame_size = overlap_half_window ? (frame_size >> 1) : frame_size; // if overlap frame size is reduced by half ( div by 2) -> right shift
 
     logic at_emit_boundary;
-    assign at_emit_boundary = ((sample_write_index + 1) % emit_frame_size) == 0;
+	assign at_emit_boundary = ((sample_write_index + 1) % emit_frame_size) == 0; //every time write index hits a multiple of emit_frame_size , emit boundary is detected.
 
   logic should_write_sram;
   assign should_write_sram = config_valid &&(overlap_half_window ? 1'b1 :
