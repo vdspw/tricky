@@ -27,9 +27,8 @@ module counter #(parameter WIDTH = 8,
         count_out <= '0;
      else
       count_out <= count_out + 1'b1; // increment the count
-      was_max <= (count_out == MAX) && en;
-  end
-    
+    end
+    was_max <= (count_out == MAX) && en; // on the same level as load
   end
   
   assign max_reached = (count_out == MAX[WIDTH-1:0]);
